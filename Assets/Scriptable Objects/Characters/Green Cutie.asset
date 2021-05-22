@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dde360e186b8a9940bbfaf340f10d799, type: 3}
-  m_Name: Warwick
+  m_Name: Green Cutie
   m_EditorClassIdentifier: 
-  name: Warwick
-  avatar: {fileID: 21300000, guid: 4c845addf677da441a1658c448db589a, type: 3}
-  background: {fileID: 0}
+  name: Green Cutie
+  avatar: {fileID: 21300000, guid: f1141bb99fcf37e429eb263882deddb4, type: 3}
+  background: {fileID: 21300000, guid: 441aa71b9a851934486f9c60a60005a2, type: 3}
   currentHealth: 100
   maxHealth: 100
   armor: 0
