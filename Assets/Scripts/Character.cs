@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
     public new string name;
     public Sprite avatar;
     public Sprite background;
 
-    public int maxHealth;
     public int currentHealth;
+    public int maxHealth;
     public int armor;
 
     public GameObject ability1;
@@ -22,5 +23,8 @@ public class Character : ScriptableObject
      * attack
      * defense
      * magic
+     * description
+     * passive ability
+     * image animations
      */
 }
