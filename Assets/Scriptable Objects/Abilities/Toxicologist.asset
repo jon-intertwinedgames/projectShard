@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f718826905b3614391129eb89522190, type: 3}
+  m_Name: Toxicologist
+  m_EditorClassIdentifier: 
+  name: Toxicologist
+  description: The next ally attack this turn poisons its target(s)
+  artwork: {fileID: 21300000, guid: d26ef9cf8b15b774f9cf98a2a833c10b, type: 3}
+  cooldown: 3
+  cost: 0000000002000000
+  effects:
+  - effectType: 1
+    effectAmount: 1
+    affliction: 0
+    target: 0
+    numberOfTargets: 1
+    isRandom: 0
+    duration: 0

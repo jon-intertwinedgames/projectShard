@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f718826905b3614391129eb89522190, type: 3}
-  m_Name: Spell Blast
+  m_Name: Evade
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  artwork: {fileID: 0}
-  amount: 0
-  cooldown: 0
-  duration: 0
-  numberOfTargets: 0
-  cost: 
-  effects: []
+  name: Evade
+  description: Dodge the next enemy ability this turn.
+  artwork: {fileID: 21300000, guid: d58cdf18178954446985238e2da92a8e, type: 3}
+  cooldown: 4
+  cost: 04000000
+  effects:
+  - effectType: 0
+    effectAmount: 1000
+    affliction: 0
+    target: 0
+    numberOfTargets: 1
+    isRandom: 0
+    duration: 0

@@ -9,7 +9,7 @@ public class Ability : ScriptableObject
     public string description;
 
     public Sprite artwork;
-    public Sprite slotArtwork;
+    //public Sprite slotArtwork;
 
     public int cooldown;
 
