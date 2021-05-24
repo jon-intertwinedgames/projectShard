@@ -13,12 +13,12 @@ public class Character : ScriptableObject
     public int maxHealth;
     public int armor;
 
-    public GameObject ability1;
-    public GameObject ability2;
-    public GameObject ability3;
-    public GameObject ability4;
+    public Ability ability1;
+    public Ability ability2;
+    public Ability ability3;
+    public Ability ability4;
 
-    /*Consider the following attributes later:
+    /*Consider the following attributes later (they can be added to a dictionary):
      * type
      * attack
      * defense
