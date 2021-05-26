@@ -16,7 +16,8 @@ MonoBehaviour:
   description: Dodge the next enemy ability this turn.
   artwork: {fileID: 21300000, guid: d58cdf18178954446985238e2da92a8e, type: 3}
   cooldown: 4
-  cost: 04000000
+  cost:
+  - {fileID: 11400000, guid: 8a112de36c66a0a43bdeb4add121f7df, type: 2}
   effects:
   - effectType: 0
     effectAmount: 1000

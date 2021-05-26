@@ -16,7 +16,8 @@ MonoBehaviour:
   description: Deal 15 damage to 1 enemy.
   artwork: {fileID: 21300000, guid: 6c819d0dd1e6c4b47b6b04a745c442e6, type: 3}
   cooldown: 0
-  cost: 01000000
+  cost:
+  - {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
   effects:
   - effectType: 0
     effectAmount: 25

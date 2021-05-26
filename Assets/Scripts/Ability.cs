@@ -13,7 +13,7 @@ public class Ability : ScriptableObject
 
     public int cooldown;
 
-    public List<EnergyType> cost = new List<EnergyType>();
+    public List<Energy> cost = new List<Energy>();
     public List<Effect> effects = new List<Effect>();
 
     /*Additional Attributes to add later:

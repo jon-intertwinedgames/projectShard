@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CharacterDisplay : MonoBehaviour
+public class InitializeCharacter : MonoBehaviour
 {
     public Character character;
 

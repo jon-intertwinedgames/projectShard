@@ -48,4 +48,6 @@ public class EnergyManager : MonoBehaviour
     {
         energyPoolDictionary[energyType] += amount;
     }
+
+    //remove energy from pool
 }

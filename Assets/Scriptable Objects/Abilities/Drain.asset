@@ -15,9 +15,10 @@ MonoBehaviour:
   name: Drain
   description: Reduce the damage of the next attack by 10. Gain 1 random shard that
     was used to cast it.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: d82346ef8f17aa1429f06dc9712fdde7, type: 3}
   cooldown: 2
-  cost: 01000000
+  cost:
+  - {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
   effects:
   - effectType: 0
     effectAmount: 10

@@ -16,8 +16,17 @@ MonoBehaviour:
   description: The next ally attack this turn poisons its target(s)
   artwork: {fileID: 21300000, guid: d26ef9cf8b15b774f9cf98a2a833c10b, type: 3}
   cooldown: 3
-  cost: 0000000002000000
+  cost:
+  - {fileID: 11400000, guid: 3b077ae0a6086e244a523e4a72b0498f, type: 2}
+  - {fileID: 11400000, guid: dc12ef373e3dd1d4d8ccd1e8c50ed975, type: 2}
   effects:
+  - effectType: 1
+    effectAmount: 1
+    affliction: 0
+    target: 0
+    numberOfTargets: 1
+    isRandom: 0
+    duration: 0
   - effectType: 1
     effectAmount: 1
     affliction: 0
