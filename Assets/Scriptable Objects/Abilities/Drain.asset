@@ -18,7 +18,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: d82346ef8f17aa1429f06dc9712fdde7, type: 3}
   cooldown: 2
   cost:
-  - {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
+  - {fileID: 11400000, guid: e9e328bdd3b00ff4094e004ead7363e5, type: 2}
   effects:
   - effectType: 0
     effectAmount: 10

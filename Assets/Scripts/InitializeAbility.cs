@@ -12,6 +12,7 @@ public class InitializeAbility : MonoBehaviour
     private void Start()
     {
         abilityArtwork.sprite = ability.artwork;
+        transform.name = ability.name;
 
         InitializeCost();
     }
@@ -20,9 +21,9 @@ public class InitializeAbility : MonoBehaviour
     {
         foreach (Energy element in ability.cost)
         {
-            Instantiate(energyPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform.Find("Cost"));
-            energyPrefab.GetComponent<InitializeEnergy>().energy = element;
-            energyPrefab.name = element.name;
+           energyPrefab = Instantiate(energyPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform.GetChild(1));
+           energyPrefab.GetComponent<InitializeEnergy>().energy = element;
+           energyPrefab.name = element.name;
         }
     }
 

@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9627a1724260cb6409ab4a450786c747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
+  energy: {fileID: 0}
   energyArtwork: {fileID: 2084542643056280272}
 --- !u!1 &7586151861894578680
 GameObject:

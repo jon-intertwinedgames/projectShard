@@ -15,7 +15,6 @@ public enum EnergyType
 public class Energy : ScriptableObject 
 {
     public EnergyType energyType;
-    public string energyName;
     public Sprite sprite;
     public ParticleSystem energyAnimation;
 }

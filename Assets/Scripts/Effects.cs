@@ -41,5 +41,8 @@ public struct Effect
 
 public class Effects : MonoBehaviour
 {
+    public void randomClass(int num = 3)
+    {
 
+    }
 }

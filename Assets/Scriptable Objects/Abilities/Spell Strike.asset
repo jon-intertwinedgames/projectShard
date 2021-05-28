@@ -19,9 +19,16 @@ MonoBehaviour:
   cost:
   - {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
   effects:
-  - effectType: 0
+  - effectType: 1
     effectAmount: 25
     affliction: 0
+    target: 2
+    numberOfTargets: 1
+    isRandom: 0
+    duration: 0
+  - effectType: 2
+    effectAmount: 0
+    affliction: 4
     target: 1
     numberOfTargets: 1
     isRandom: 0
