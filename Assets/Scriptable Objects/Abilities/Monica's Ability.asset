@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f718826905b3614391129eb89522190, type: 3}
+  m_Name: Monica's Ability
+  m_EditorClassIdentifier: 
+  name: Monica
+  description: 
+  artwork: {fileID: 21300000, guid: d5bd50e45faabd14793c108b84776ec4, type: 3}
+  cooldown: 0
+  cost:
+  - {fileID: 11400000, guid: e84b374b86a9028439d181d1b7f90b48, type: 2}
+  - {fileID: 11400000, guid: 8a112de36c66a0a43bdeb4add121f7df, type: 2}
+  effects: []

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Magic
   m_EditorClassIdentifier: 
   energyType: 1
-  energyName: Magic
   sprite: {fileID: 21300000, guid: c6f286592718f8047a5e7fed3d12c4c9, type: 3}
-  energyAnimation: {fileID: 0}
+  energyAnimation: {fileID: 3003101159504333910, guid: 4a7195d071bfe8b4db85ed7a12de9c20,
+    type: 3}

@@ -9,6 +9,9 @@ public class InitializeAbility : MonoBehaviour
     public Image abilityArtwork;
     public GameObject energyPrefab;
 
+    [HideInInspector]
+    public List<ParticleSystem> energyAnimations;
+
     private void Start()
     {
         abilityArtwork.sprite = ability.artwork;
@@ -19,13 +22,20 @@ public class InitializeAbility : MonoBehaviour
 
     private void InitializeCost()
     {
+        energyAnimations = new List<ParticleSystem>();
+
         foreach (Energy element in ability.cost)
         {
-           energyPrefab = Instantiate(energyPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform.GetChild(1));
+           energyPrefab = Instantiate(energyPrefab, Vector3.zero, Quaternion.identity, transform.GetChild(1));
            energyPrefab.GetComponent<InitializeEnergy>().energy = element;
            energyPrefab.name = element.name;
+
+           ParticleSystem energyAnimation = Instantiate(element.energyAnimation, Vector3.zero, Quaternion.identity, transform.GetChild(0));
+           energyAnimation.transform.position = transform.parent.position;
+           energyAnimations.Add(energyAnimation);
         }
     }
+
 
 
 }

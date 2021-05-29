@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Spirit
   m_EditorClassIdentifier: 
   energyType: 3
-  energyName: Spirit
   sprite: {fileID: 21300000, guid: 45a4a42d213bf4940ad8b535d8ffa4c6, type: 3}
-  energyAnimation: {fileID: 0}
+  energyAnimation: {fileID: 1910557755515176896, guid: e2bb07bf980c2b1479d294a6955d4c7c,
+    type: 3}

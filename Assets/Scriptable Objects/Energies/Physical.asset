@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Physical
   m_EditorClassIdentifier: 
   energyType: 0
-  energyName: Physical
   sprite: {fileID: 21300000, guid: c062f86f40afc98449f2d6547c15f035, type: 3}
-  energyAnimation: {fileID: 0}
+  energyAnimation: {fileID: 2240597396431226232, guid: 4cbde0ea822813346a26d6b9766b9fa0,
+    type: 3}

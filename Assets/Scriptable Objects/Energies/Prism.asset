@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Prism
   m_EditorClassIdentifier: 
   energyType: 4
-  energyName: Prism
   sprite: {fileID: 21300000, guid: 81a7978d97a27044e866e8e3aa91bfed, type: 3}
-  energyAnimation: {fileID: 0}
+  energyAnimation: {fileID: 5858978798228816222, guid: db6ff1b9bd864d64393aa2ca4e22ee42,
+    type: 3}

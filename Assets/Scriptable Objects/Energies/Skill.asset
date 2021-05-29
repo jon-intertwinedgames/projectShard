@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skill
   m_EditorClassIdentifier: 
   energyType: 2
-  energyName: Skill
   sprite: {fileID: 21300000, guid: 2994123f8f510374f8bd7ac0888882e6, type: 3}
-  energyAnimation: {fileID: 0}
+  energyAnimation: {fileID: 5609760310967644702, guid: 03579760bb9e573469980095930ab022,
+    type: 3}
