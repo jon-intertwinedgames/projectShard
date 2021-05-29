@@ -139,6 +139,7 @@ MonoBehaviour:
   abilityArtwork: {fileID: 742383145712702780}
   energyPrefab: {fileID: 3789088874657675774, guid: 4bb6e2b833c3f164d96b19788fc4e0d2,
     type: 3}
+  energyAnimations: []
 --- !u!114 &4317122153634592046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,17 +214,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5750466099280092656}
-          m_MethodName: Stop
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 4317122153634592046}
           m_MethodName: OnMouseDrag
           m_Mode: 1
@@ -239,8 +229,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5750466099280092656}
-          m_MethodName: Stop
+        - m_Target: {fileID: 4317122153634592046}
+          m_MethodName: OnMouseUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -250,8 +240,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 4317122153634592046}
-          m_MethodName: OnMouseUp
+          m_MethodName: OnMouseDragEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2584418946189075966, guid: ebffffb4100fb564db1446218d493f12,
+            type: 3}
+          m_MethodName: Stop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

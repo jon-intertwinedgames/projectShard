@@ -7,15 +7,6 @@ public class InputManager : MonoBehaviour
     private Vector2 worldPosition;
     private Vector2 mousePos;
 
-    private void OnMouseOver()
-    {
-
-    }
-
-    private void OnMouseExit()
-    {
-
-    }
 
     private void OnMouseDown()
     {
@@ -30,7 +21,6 @@ public class InputManager : MonoBehaviour
         worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 
         gameObject.transform.position = worldPosition;
-        StartCoroutine("StartAnimation");
 
     }
 
@@ -41,21 +31,37 @@ public class InputManager : MonoBehaviour
         //Else ability snaps back to ability slot
         gameObject.transform.position = transform.parent.position;
 
-        StartCoroutine("EndAnimation");
+        StartCoroutine("EndEnergyAnimation");
 
     }
 
-    IEnumerator StartAnimation()
+    public void OnMouseDragEnter()
     {
+        StartCoroutine("StartEnergyAnimation");
+    }
+
+    IEnumerator StartEnergyAnimation()
+    {
+        Vector3 startDirection = new Vector3(1,1,1);
+        float startSpeed = 1;
+        ParticleSystem.ShapeModule particleShape;
+
         foreach (ParticleSystem element in (gameObject.GetComponent<InitializeAbility>().energyAnimations))
         {
+            particleShape = element.shape;
+            particleShape.scale = startDirection; // Sets the rotation of the energy particle effect to be counterclockwise 
+            particleShape.arcSpeed = startSpeed; // Sets the speed of rotation of the energy particle effect around the ability
+
             element.Play();
+
+            startDirection.x *= -1; // If the ability requires another energy, change the next particle effect to opposite rotation (counter)clockwise
+            startSpeed += .2f; // If the ability requires another energy, increases rotation speed of next energy
         }
 
         yield return null;
     }
 
-    IEnumerator EndAnimation()
+    IEnumerator EndEnergyAnimation()
     {
         foreach (ParticleSystem element in (gameObject.GetComponent<InitializeAbility>().energyAnimations))
         {
