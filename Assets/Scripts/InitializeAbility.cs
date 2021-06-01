@@ -5,37 +5,54 @@ using UnityEngine.UI;
 
 public class InitializeAbility : MonoBehaviour
 {
+    // Ability Variables
     public Ability ability;
     public Image abilityArtwork;
+
+    // Energy Variables
     public GameObject energyPrefab;
 
-    [HideInInspector]
-    public List<ParticleSystem> energyAnimations;
+    [HideInInspector] //List of energy cost (according to SO)
+    public List<Energy> energyCost;
+
+    [HideInInspector] //List of all energy particle effects
+    public List<ParticleSystem> energyAnimations;     
 
     private void Start()
     {
-        abilityArtwork.sprite = ability.artwork;
         transform.name = ability.name;
+        abilityArtwork.sprite = ability.artwork;
 
         InitializeCost();
     }
 
     private void InitializeCost()
     {
+        energyCost = new List<Energy>(ability.cost); //Reference "Energy List" of Ability SO
         energyAnimations = new List<ParticleSystem>();
 
-        foreach (Energy element in ability.cost)
+        foreach (Energy element in energyCost)
         {
-           energyPrefab = Instantiate(energyPrefab, Vector3.zero, Quaternion.identity, transform.GetChild(1));
-           energyPrefab.GetComponent<InitializeEnergy>().energy = element;
-           energyPrefab.name = element.name;
-
-           ParticleSystem energyAnimation = Instantiate(element.energyAnimation, Vector3.zero, Quaternion.identity, transform.GetChild(0));
-           energyAnimation.transform.position = transform.parent.position;
-           energyAnimations.Add(energyAnimation);
+            establishEnergy(element);
+            establishParticleEffect(element);
         }
     }
 
+    // Instantiate an energy prefab and assign it the proper Energy type
+    private void establishEnergy(Energy energy)
+    {
+        energyPrefab = Instantiate(energyPrefab, Vector3.zero, Quaternion.identity, transform.GetChild(1));
+        energyPrefab.GetComponent<InitializeEnergy>().energy = energy;
+        energyPrefab.name = energy.name;
+    }
 
+
+    // Instantiate energy particle effect and add it to the "Energy Animation List"
+    private void establishParticleEffect(Energy energy)
+    {
+        ParticleSystem energyAnimation = Instantiate(energy.energyAnimation, Vector3.zero, Quaternion.identity, transform.GetChild(0));
+        energyAnimation.transform.position = transform.parent.position;
+        energyAnimations.Add(energyAnimation);
+    }
 
 }

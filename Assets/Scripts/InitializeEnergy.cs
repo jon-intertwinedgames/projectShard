@@ -5,18 +5,8 @@ using UnityEngine.UI;
 
 public class InitializeEnergy : MonoBehaviour
 {
-    /*
-     * public
-     * private
-     * protected
-     * 
-     * [SerializeField]
-     * [HideInInspector
-     */
-
     public Energy energy;
     public Image energyArtwork;
-    //public string energyName;
 
     void Start()
     {

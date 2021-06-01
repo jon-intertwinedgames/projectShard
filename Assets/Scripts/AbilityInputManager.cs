@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class AbilityInputManager : MonoBehaviour
 {
     private Vector2 worldPosition;
     private Vector2 mousePos;
+    private InitializeAbility intializeAbility;
+    private ParticleEffectController particleEffectController;
+    private List<ParticleSystem> energyAnimations;
 
+    private void Start()
+    {
+        
+    }
 
     private void OnMouseDown()
     {
         //Show attributes in the description box (ALL)
 
-        //Disable Energy sprite and Activate Energy animation (Abilities)
     }
 
     public void OnMouseDrag()
@@ -42,20 +48,22 @@ public class InputManager : MonoBehaviour
 
     IEnumerator StartEnergyAnimation()
     {
-        Vector3 startDirection = new Vector3(1,1,1);
-        float startSpeed = 1;
-        ParticleSystem.ShapeModule particleShape;
+        energyAnimations = gameObject.GetComponent<InitializeAbility>().energyAnimations;
+        
+        var direction = ParticleEffectController.startDirection;
+        var arcSpeed = ParticleEffectController.arcSpeed;
 
-        foreach (ParticleSystem element in (gameObject.GetComponent<InitializeAbility>().energyAnimations))
+        foreach (ParticleSystem element in energyAnimations)
         {
-            particleShape = element.shape;
-            particleShape.scale = startDirection; // Sets the rotation of the energy particle effect to be counterclockwise 
-            particleShape.arcSpeed = startSpeed; // Sets the speed of rotation of the energy particle effect around the ability
+            particleEffectController = element.GetComponent<ParticleEffectController>();
+            particleEffectController.particleShape.scale = direction;
+            particleEffectController.particleShape.arcSpeed = arcSpeed; 
 
             element.Play();
 
-            startDirection.x *= -1; // If the ability requires another energy, change the next particle effect to opposite rotation (counter)clockwise
-            startSpeed += .2f; // If the ability requires another energy, increases rotation speed of next energy
+            direction.x *= -1; // If the ability requires another energy, change the next particle effect to opposite rotation (counter)clockwise
+            arcSpeed += ParticleEffectController.arcSpeedModifier; // If the ability requires another energy, increases rotation speed of next energy
+      
         }
 
         yield return null;
