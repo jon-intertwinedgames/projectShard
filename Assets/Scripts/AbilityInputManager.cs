@@ -6,34 +6,44 @@ public class AbilityInputManager : MonoBehaviour
 {
     private Vector2 worldPosition;
     private Vector2 mousePos;
-    private InitializeAbility intializeAbility;
+    private InitializeAbility intializeAbility ;
     private ParticleEffectController particleEffectController;
     private List<ParticleSystem> energyAnimations;
 
+    public AbilityInputManager instance;
+    public ParticleSystem selectedAnimation;
+
+    private bool isSelected;
+
     private void Start()
     {
-        
+
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        //Show attributes in the description box (ALL)
 
+        DescriptionManager.setNewDescription(
+           gameObject.GetComponent<InitializeAbility>().ability.name,
+           gameObject.GetComponent<InitializeAbility>().ability.description,
+           gameObject.GetComponent<InitializeAbility>().ability.artwork);
+
+        //DescriptionManager.resetSelectedItem();
+        //DescriptionManager.setSelectedItem(this.gameObject);
+        
+        
     }
 
     public void OnMouseDrag()
     {
-        mousePos = Input.mousePosition;
-        worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-
+        mousePosToWorldPos();
         gameObject.transform.position = worldPosition;
-
     }
 
     public void OnMouseUp()
     {
         //If object is dropped on the arena, activate lock coroutine
-
+        
         //Else ability snaps back to ability slot
         gameObject.transform.position = transform.parent.position;
 
@@ -46,6 +56,11 @@ public class AbilityInputManager : MonoBehaviour
         StartCoroutine("StartEnergyAnimation");
     }
 
+    private void mousePosToWorldPos()
+    {
+        mousePos = Input.mousePosition;
+        worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+    }
     IEnumerator StartEnergyAnimation()
     {
         energyAnimations = gameObject.GetComponent<InitializeAbility>().energyAnimations;
@@ -76,6 +91,12 @@ public class AbilityInputManager : MonoBehaviour
             element.Stop();
         }
 
+        yield return null;
+    }
+
+    public static IEnumerator StartSelectedAnimation()
+    {
+       // if(gameObject.instance.tag == "Selected")
         yield return null;
     }
 

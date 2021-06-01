@@ -8,6 +8,7 @@ public class InitializeAbility : MonoBehaviour
     // Ability Variables
     public Ability ability;
     public Image abilityArtwork;
+    public string abilityDescription;
 
     // Energy Variables
     public GameObject energyPrefab;
@@ -22,6 +23,7 @@ public class InitializeAbility : MonoBehaviour
     {
         transform.name = ability.name;
         abilityArtwork.sprite = ability.artwork;
+        abilityDescription = ability.description;
 
         InitializeCost();
     }

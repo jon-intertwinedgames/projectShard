@@ -23,36 +23,15 @@ public class ParticleEffectController : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        changeToSelectionColor();
+
     }
 
     public void changeToSelectionColor()
     {
-        Debug.Log("Entered Selection Color Change");
         var main = instance.main;
         main.startColor = selectionColor;
-        //instance.main = ParticleSystem.MainModule;
-        //instance.main.startColor = selectionColor.linear;
-        //particleMain.startColor = selectionColor;
-        
-    }
-
-    public void setRotationDirection(float direction)
-    {
-        //particleShape.scale = (direction,1,1);
-        //startDirection.x *= -1;
-    }
-
-    public void increaseStartSpeed()
-    {
-        arcSpeed += arcSpeedModifier;
-    }
-
-    public void setArcSpeed(float speedModifier)
-    {
-        particleShape.arcSpeed = speedModifier;
     }
 
 
