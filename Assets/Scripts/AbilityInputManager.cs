@@ -10,8 +10,7 @@ public class AbilityInputManager : MonoBehaviour
     private ParticleEffectController particleEffectController;
     private List<ParticleSystem> energyAnimations;
 
-    public AbilityInputManager instance;
-    public ParticleSystem selectedAnimation;
+    //public ParticleSystem selectedAnimation;
 
     private bool isSelected;
 
@@ -94,6 +93,10 @@ public class AbilityInputManager : MonoBehaviour
         yield return null;
     }
 
+    /// <summary>
+    /// Potential Solution for Selected Color
+    /// </summary>
+    /// <returns></returns>
     public static IEnumerator StartSelectedAnimation()
     {
        // if(gameObject.instance.tag == "Selected")

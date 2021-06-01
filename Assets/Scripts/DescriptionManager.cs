@@ -57,7 +57,7 @@ public class DescriptionManager : MonoBehaviour
         setDescriptionImage(sprite);
     }
 
-    /*Need to update selection color*/
+    /*Update selection color solution
     public static void setSelectedItem(GameObject gameObject)
     {
         selectedObject = gameObject;
@@ -69,5 +69,5 @@ public class DescriptionManager : MonoBehaviour
 
         selectedObject.tag = "Unselected";
     }
-
+    */
 }
