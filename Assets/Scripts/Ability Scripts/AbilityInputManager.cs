@@ -1,36 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityInputManager : MonoBehaviour
 {
     private Vector2 worldPosition;
     private Vector2 mousePos;
-    private InitializeAbility intializeAbility ;
+    private Vector2 defaultAbilityPos;
+    private AbilityLoader abilityLoader;
     private ParticleEffectController particleEffectController;
     private List<ParticleSystem> energyAnimations;
 
     //public ParticleSystem selectedAnimation;
+    //private bool isSelected;
 
-    private bool isSelected;
-
-    private void Start()
+    private void Awake()
     {
-
+        abilityLoader = gameObject.GetComponent<AbilityLoader>();
     }
 
     public void OnMouseDown()
     {
-
-        DescriptionManager.setNewDescription(
-           gameObject.GetComponent<InitializeAbility>().ability.name,
-           gameObject.GetComponent<InitializeAbility>().ability.description,
-           gameObject.GetComponent<InitializeAbility>().ability.artwork);
-
+        DisplayDescription();
         //DescriptionManager.resetSelectedItem();
-        //DescriptionManager.setSelectedItem(this.gameObject);
-        
-        
+        //DescriptionManager.setSelectedItem(this.gameObject); 
+    }
+
+    public void OnMouseUp()
+    {
+        //gameObject.transform.position = transform.parent.position;
+        //GetComponentInParent<HorizontalLayoutGroup>().CalculateLayoutInputHorizontal();
+        GetComponentInParent<AbilitySet>().MoveAbilitiesToSlotPositions();
+        StartCoroutine("EndEnergyAnimation");
     }
 
     public void OnMouseDrag()
@@ -39,19 +41,13 @@ public class AbilityInputManager : MonoBehaviour
         gameObject.transform.position = worldPosition;
     }
 
-    public void OnMouseUp()
+    public void OnMouseOver()
     {
-        //If object is dropped on the arena, activate lock coroutine
-        
-        //Else ability snaps back to ability slot
-        gameObject.transform.position = transform.parent.position;
-
-        StartCoroutine("EndEnergyAnimation");
-
+        DisplayDescription();
     }
-
     public void OnMouseDragEnter()
     {
+        DisplayDescription();
         StartCoroutine("StartEnergyAnimation");
     }
 
@@ -60,9 +56,18 @@ public class AbilityInputManager : MonoBehaviour
         mousePos = Input.mousePosition;
         worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
+
+    private void DisplayDescription()
+    {
+        DescriptionManager.setNewDescription(
+            abilityLoader.ability.name,
+            abilityLoader.ability.description,
+            abilityLoader.ability.artwork);
+    }
+
     IEnumerator StartEnergyAnimation()
     {
-        energyAnimations = gameObject.GetComponent<InitializeAbility>().energyAnimations;
+        energyAnimations = abilityLoader.energyAnimations;
         
         var direction = ParticleEffectController.startDirection;
         var arcSpeed = ParticleEffectController.arcSpeed;
@@ -77,7 +82,7 @@ public class AbilityInputManager : MonoBehaviour
 
             direction.x *= -1; // If the ability requires another energy, change the next particle effect to opposite rotation (counter)clockwise
             arcSpeed += ParticleEffectController.arcSpeedModifier; // If the ability requires another energy, increases rotation speed of next energy
-      
+
         }
 
         yield return null;
@@ -85,7 +90,7 @@ public class AbilityInputManager : MonoBehaviour
 
     IEnumerator EndEnergyAnimation()
     {
-        foreach (ParticleSystem element in (gameObject.GetComponent<InitializeAbility>().energyAnimations))
+        foreach (ParticleSystem element in (abilityLoader.energyAnimations))
         {
             element.Stop();
         }
@@ -93,10 +98,6 @@ public class AbilityInputManager : MonoBehaviour
         yield return null;
     }
 
-    /// <summary>
-    /// Potential Solution for Selected Color
-    /// </summary>
-    /// <returns></returns>
     public static IEnumerator StartSelectedAnimation()
     {
        // if(gameObject.instance.tag == "Selected")

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f718826905b3614391129eb89522190, type: 3}
+  m_Name: Defend
+  m_EditorClassIdentifier: 
+  name: Defend
+  description: Select an ally. The next time that character is targeted by an attack,
+    redirect it to this character instead.
+  artwork: {fileID: 21300000, guid: e0993c5078297ca4aa51290816f40e26, type: 3}
+  cooldown: 1
+  cost:
+  - {fileID: 11400000, guid: 3b077ae0a6086e244a523e4a72b0498f, type: 2}
+  - {fileID: 11400000, guid: e9e328bdd3b00ff4094e004ead7363e5, type: 2}
+  effects:
+  - effectType: 0
+    effectAmount: 0
+    affliction: 0
+    target: 2
+    numberOfTargets: 0
+    isRandom: 0
+    duration: 0

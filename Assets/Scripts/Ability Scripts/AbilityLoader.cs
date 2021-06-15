@@ -3,54 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InitializeAbility : MonoBehaviour
+public class AbilityLoader : MonoBehaviour
 {
-    // Ability Variables
+    //Ability Variables
     public Ability ability;
     public Image abilityArtwork;
     public string abilityDescription;
 
-    // Energy Variables
+    //Energy Variables
     public GameObject energyPrefab;
+    [HideInInspector] public List<Energy> energyCost;
+    [HideInInspector] public List<ParticleSystem> energyAnimations;
 
-    [HideInInspector] //List of energy cost (according to SO)
-    public List<Energy> energyCost;
+    private void Awake()
+    {
+        InitializeAbilityInfo();
+        InitializeCost();
+    }
 
-    [HideInInspector] //List of all energy particle effects
-    public List<ParticleSystem> energyAnimations;     
-
-    private void Start()
+    private void InitializeAbilityInfo()
     {
         transform.name = ability.name;
         abilityArtwork.sprite = ability.artwork;
         abilityDescription = ability.description;
-
-        InitializeCost();
     }
 
     private void InitializeCost()
     {
-        energyCost = new List<Energy>(ability.cost); //Reference "Energy List" of Ability SO
+        energyCost = new List<Energy>(ability.energyCost);
         energyAnimations = new List<ParticleSystem>();
 
         foreach (Energy element in energyCost)
         {
-            establishEnergy(element);
-            establishParticleEffect(element);
+            CreateEnergyCost(element);
+            CreateEnergyDragAnimation(element);
         }
     }
 
-    // Instantiate an energy prefab and assign it the proper Energy type
-    private void establishEnergy(Energy energy)
+    private void CreateEnergyCost(Energy energy)
     {
+        //The prefab instantiates under the "Cost" child. 
         energyPrefab = Instantiate(energyPrefab, Vector3.zero, Quaternion.identity, transform.GetChild(1));
-        energyPrefab.GetComponent<InitializeEnergy>().energy = energy;
+        energyPrefab.GetComponent<EnergyLoader>().energy = energy;
         energyPrefab.name = energy.name;
     }
 
-
-    // Instantiate energy particle effect and add it to the "Energy Animation List"
-    private void establishParticleEffect(Energy energy)
+    private void CreateEnergyDragAnimation(Energy energy)
     {
         ParticleSystem energyAnimation = Instantiate(energy.energyAnimation, Vector3.zero, Quaternion.identity, transform.GetChild(0));
         energyAnimation.transform.position = transform.parent.position;

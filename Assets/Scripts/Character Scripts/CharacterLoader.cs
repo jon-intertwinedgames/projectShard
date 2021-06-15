@@ -4,30 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InitializeCharacter : MonoBehaviour
+public class CharacterLoader : MonoBehaviour
 {
+    [Header("General")]
     public Character character;
-
     public Image avatar;
     public Image background;
 
-    //if using regular text, replace TMPUGUI with Text reference type
-    //public TextMeshProUGUI nameText;
+    [Header("Stats")]
     public TextMeshProUGUI currentHealthText;
     public TextMeshProUGUI maxHealthText;
-    //public TextMeshProUGUI armorText;
 
-    void Start()
+    [Header("Abilities")]
+    public List<Ability> abilitySet = new List<Ability>();
+    public GameObject abilityPrefab;
+
+    void Awake()
+    {
+        InitializeCharacterArt();
+        InitializeCharacterStats();
+    }
+
+    private void InitializeCharacterArt()
     {
         avatar.sprite = character.avatar;
         background.sprite = character.background;
-
-        //nameText.text = character.name;
-        currentHealthText.text = character.currentHealth.ToString();
-        maxHealthText.text = character.maxHealth.ToString();
-
-        //armorText.text = character.armor.ToString();
-
     }
 
+    private void InitializeCharacterStats()
+    {
+        currentHealthText.text = character.currentHealth.ToString();
+        maxHealthText.text = character.maxHealth.ToString();
+    }
+
+    private void InitializeCharacterAbilities()
+    {
+
+    }
 }

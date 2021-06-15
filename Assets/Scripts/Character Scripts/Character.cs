@@ -5,18 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
+    [Header("General Information")]
     public new string name;
     public Sprite avatar;
     public Sprite background;
 
+    [Header("Statistics")]
     public int currentHealth;
     public int maxHealth;
     public int armor;
 
-    public Ability ability1;
-    public Ability ability2;
-    public Ability ability3;
-    public Ability ability4;
+    [Header("Abilities")]
+    public List<Ability> abilities;
 
     /*Consider the following attributes later (they can be added to a dictionary):
      * type
